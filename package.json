@@ -13,6 +13,7 @@
     "web": "npm run dev --workspace=@canalpay/web",
     "mobile": "npm run start --workspace=@canalpay/mobile",
     "expo:whoami": "node scripts/expo-whoami.mjs",
+    "github:auth": "node scripts/github-auth.mjs",
     "expo:link": "npm exec eas init --workspace=@canalpay/mobile",
     "build:web": "npm run build --workspace=@canalpay/web",
     "phase2:setup": "node scripts/phase2-setup-env.mjs",

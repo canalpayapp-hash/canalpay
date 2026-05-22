@@ -9,26 +9,48 @@ Repositorio: https://github.com/canalpayapp-hash/canalpay
 | Paso | Estado |
 |------|--------|
 | Commit local (`main`) | ✅ `5cfeeca` |
-| Push a GitHub | ⏳ Requiere credenciales de **canalpayapp-hash** |
+| Push a GitHub | ✅ Rama `main` en [canalpayapp-hash/canalpay](https://github.com/canalpayapp-hash/canalpay) |
 
-El `git push` falló porque en esta PC Git está autenticado como **`legaloapp-dot`**, sin permiso de escritura en ese repo.
+Sesión: **`canalpayapp-hash`** (`gh auth status`). Si `git push` falla con `legaloapp-dot`, ejecuta:
+
+```powershell
+& "C:\Program Files\GitHub CLI\gh.exe" auth setup-git
+```
 
 ---
 
-## Qué hacer para subir (elige una)
+## Iniciar sesión desde la terminal (GitHub CLI)
 
-### A) Iniciar sesión con la cuenta correcta (recomendado)
+Instalado: `gh` (GitHub CLI).
+
+### Opción A — Código en el navegador (interactivo)
 
 ```powershell
-# GitHub CLI
-gh auth login
-gh auth status
+& "C:\Program Files\GitHub CLI\gh.exe" auth login --hostname github.com --git-protocol https --scopes repo
+```
 
+1. Copia el código que muestra (ej. `XXXX-XXXX`)
+2. Abre https://github.com/login/device
+3. Inicia sesión con la cuenta que **puede escribir** en `canalpayapp-hash/canalpay`
+4. Pega el código y autoriza
+
+Luego:
+
+```powershell
 cd c:\Empresa\CanalPay
 git push -u origin main
 ```
 
-Usa la cuenta que es **owner** o **colaborador** de `canalpayapp-hash/canalpay`.
+### Opción B — Token en `.env.local` (sin navegador en Cursor)
+
+1. Crea un PAT en https://github.com/settings/tokens (scope **repo**)
+2. En `.env.local`: `GITHUB_TOKEN=ghp_...`
+3. Ejecuta:
+
+```powershell
+npm run github:auth
+git push -u origin main
+```
 
 ### B) Personal Access Token (HTTPS)
 
