@@ -1,0 +1,8 @@
+# CanalPay — ref remoto: bsjvhewjhefntiasuxcx
+project_id = "bsjvhewjhefntiasuxcx"
+
+[api]
+enabled = true
+
+[db]
+major_version = 15

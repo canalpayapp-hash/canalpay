@@ -1,0 +1,37 @@
+{
+  "name": "canalpay",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "phase1:apply": "node scripts/phase1-apply-migrations.mjs",
+    "phase1:users": "node scripts/phase1-create-users.mjs",
+    "phase1:verify": "node scripts/phase1-verify.mjs",
+    "web": "npm run dev --workspace=@canalpay/web",
+    "mobile": "npm run start --workspace=@canalpay/mobile",
+    "expo:whoami": "node scripts/expo-whoami.mjs",
+    "expo:link": "npm exec eas init --workspace=@canalpay/mobile",
+    "build:web": "npm run build --workspace=@canalpay/web",
+    "phase2:setup": "node scripts/phase2-setup-env.mjs",
+    "phase2:verify": "node scripts/phase2-verify.mjs",
+    "phase3:verify": "node scripts/phase3-verify.mjs",
+    "lint": "npm run lint --workspaces --if-present"
+  },
+  "overrides": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "pg": "^8.21.0"
+  }
+}
