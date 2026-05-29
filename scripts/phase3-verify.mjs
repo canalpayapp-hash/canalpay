@@ -36,9 +36,9 @@ for (const [role, web, mobile] of matrix) {
 if (ok) console.log('✓ Reglas de rol');
 
 for (const f of [
-  'packages/shared/src/auth.ts',
-  'apps/web/src/middleware.ts',
-  'apps/mobile/context/AuthContext.tsx',
+  'shared/src/auth.ts',
+  'admin/src/middleware.ts',
+  'mobile/context/AuthContext.tsx',
 ]) {
   if (existsSync(resolve(root, f))) console.log(`✓ ${f}`);
   else {

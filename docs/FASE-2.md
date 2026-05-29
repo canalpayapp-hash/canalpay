@@ -9,12 +9,12 @@
 ## Checklist
 
 - [x] `npm install` en la raíz
-- [x] Variables en `apps/web/.env.local` y `apps/mobile/.env`
-- [x] `npm run web` → http://localhost:3000
+- [x] Variables en `admin/.env.local` y `mobile/.env`
+- [x] `npm run admin` → http://localhost:3000
 - [x] `npm run mobile` → Expo (Expo Go)
 - [x] Metro configurado para monorepo
 - [x] Scripts `phase2:setup` y `phase2:verify`
-- [ ] `npm run build:web` — pendiente (bug Next 15 + monorepo en `/404`; **dev funciona**)
+- [x] `npm run build:admin` — producción
 
 ---
 
@@ -23,11 +23,11 @@
 ```powershell
 cd c:\Empresa\CanalPay
 npm install
-npm run phase2:setup    # sincroniza .env a web y móvil
-npm run web             # terminal 1
+npm run phase2:setup    # sincroniza .env a admin y móvil
+npm run admin           # terminal 1
 npm run mobile          # terminal 2 — escanea QR con Expo Go
 npm run phase2:verify   # comprobación rápida
-npm run build:web       # producción (falla por bug monorepo; usar dev para demo)
+npm run build:admin     # producción
 ```
 
 ---
@@ -60,7 +60,7 @@ git branch -M main
 git push -u origin main
 ```
 
-No subas `.env.local`, `apps/web/.env.local`, `apps/mobile/.env` ni `SUPABASE_SERVICE_ROLE_KEY`.
+No subas `.env.local`, `admin/.env.local`, `mobile/.env` ni `SUPABASE_SERVICE_ROLE_KEY`.
 
 ---
 

@@ -2,7 +2,7 @@
 
 Proyecto en Expo: [canalpay / canalpay-app](https://expo.dev/accounts/canalpay/projects/canalpay-app)
 
-Config local en `apps/mobile/app.json`:
+Config local en `mobile/app.json`:
 
 - `owner`: `canalpay`
 - `slug`: `canalpay-app`
@@ -16,7 +16,7 @@ Config local en `apps/mobile/app.json`:
 | Cuenta | `canalpay` |
 | Proyecto | [canalpay-app](https://expo.dev/accounts/canalpay/projects/canalpay-app) |
 | Project ID | `3eae55fc-e233-4d18-b34b-980f0d806c97` |
-| Config | `apps/mobile/app.json` → `owner`, `slug`, `extra.eas.projectId` |
+| Config | `mobile/app.json` → `owner`, `slug`, `extra.eas.projectId` |
 
 Token en `.env.local` como `EXPO_TOKEN` (no commitear).
 
@@ -32,9 +32,16 @@ npm run expo:whoami
 
 ```powershell
 # .env.local con EXPO_TOKEN de canalpay
-cd apps/mobile
+cd mobile
 npx eas init --non-interactive --force
 ```
+
+## Registro con OTP (email)
+
+1. En Supabase → **Authentication** → **Providers** → Email: activar **Email OTP** (o magic link con código).
+2. En **Email Templates** → *Magic Link* o plantilla OTP, incluir el token de 6 dígitos: `{{ .Token }}` (ver [docs Supabase](https://supabase.com/docs/guides/auth/auth-email-passwordless)).
+3. Aplicar migración `supabase/migrations/20260525120000_mobile_self_register.sql` (función `complete_mobile_registration`).
+4. En la app: **Crear cuenta** → email → código → perfil vendedor (admin asigna comercio después).
 
 ---
 

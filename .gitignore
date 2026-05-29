@@ -15,8 +15,8 @@ web-build/
 .env
 .env.local
 .env.*.local
-apps/mobile/.env
-apps/web/.env.local
+mobile/.env
+admin/.env.local
 *.pem
 
 # Logs

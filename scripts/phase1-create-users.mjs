@@ -49,6 +49,7 @@ if (!url || !password) {
 }
 
 const users = [
+  { email: 'super@canalpay.com', full_name: 'Super Admin CanalPay' },
   { email: 'admin@dulcecaracas.com', full_name: 'Admin Demo' },
   { email: 'vendedor@dulcecaracas.com', full_name: 'Vendedor Demo' },
   { email: 'cajero@dulcecaracas.com', full_name: 'Cajero Demo' },

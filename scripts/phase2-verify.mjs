@@ -20,17 +20,17 @@ console.log('CanalPay — Fase 2: verificación\n');
 
 check(existsSync(resolve(root, 'node_modules')), 'node_modules (raíz)', 'Ejecuta npm install');
 check(
-  existsSync(resolve(root, 'apps/web/node_modules')),
-  'apps/web dependencias',
+  existsSync(resolve(root, 'admin/node_modules')),
+  'admin dependencias',
   'npm install en raíz'
 );
 check(
-  existsSync(resolve(root, 'apps/mobile/node_modules')),
-  'apps/mobile dependencias (Expo/RN)',
+  existsSync(resolve(root, 'mobile/node_modules')),
+  'mobile dependencias (Expo/RN)',
   'npm install en raíz'
 );
-check(existsSync(resolve(root, 'apps/web/.env.local')), 'apps/web/.env.local', 'npm run phase2:setup');
-check(existsSync(resolve(root, 'apps/mobile/.env')), 'apps/mobile/.env', 'npm run phase2:setup');
+check(existsSync(resolve(root, 'admin/.env.local')), 'admin/.env.local', 'npm run phase2:setup');
+check(existsSync(resolve(root, 'mobile/.env')), 'mobile/.env', 'npm run phase2:setup');
 
 const ports = [3000, 3001];
 let webPort = null;
@@ -49,7 +49,7 @@ for (const port of ports) {
   }
 }
 if (!webPort) {
-  console.log('✗ Web no responde en :3000 ni :3001 — ejecuta npm run web');
+  console.log('✗ Admin no responde en :3000 ni :3001 — ejecuta npm run admin');
   failed++;
 }
 
@@ -66,7 +66,7 @@ if (webPort) {
 
 if (failed === 0) {
   console.log('\n✅ Fase 2 lista.');
-  console.log('  npm run web     → panel + pagos');
+  console.log('  npm run admin   → panel + pagos');
   console.log('  npm run mobile  → app vendedor (Expo Go)');
 } else {
   console.log(`\n⚠ ${failed} chequeo(s) fallaron.`);

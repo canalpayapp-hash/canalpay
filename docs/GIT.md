@@ -85,7 +85,7 @@ git commit -m "descripción"
 git push origin main
 ```
 
-**No subir nunca:** `.env.local`, `apps/web/.env.local`, `apps/mobile/.env` (ya están en `.gitignore`).
+**No subir nunca:** `.env.local`, `admin/.env.local`, `mobile/.env` (ya están en `.gitignore`).
 
 **Cada máquina nueva:**
 
@@ -105,7 +105,7 @@ npm run phase2:setup
 | Archivo local | Contenido |
 |---------------|-----------|
 | `.env.local` | Supabase, Expo, DB password |
-| `apps/web/.env.local` | URL + anon key web |
-| `apps/mobile/.env` | URL + anon key móvil |
+| `admin/.env.local` | URL + anon key admin |
+| `mobile/.env` | URL + anon key móvil |
 
 Comparte secretos por canal seguro (1Password, etc.), no por GitHub.

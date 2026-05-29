@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cp-primary: #4f378a;
+  --color-cp-primary-container: #6750a4;
+  --color-cp-on-primary: #ffffff;
+  --color-cp-background: #fdf7ff;
+  --color-cp-surface: #fdf7ff;
+  --color-cp-surface-low: #f8f2fa;
+  --color-cp-surface-lowest: #ffffff;
+  --color-cp-surface-container: #f2ecf4;
+  --color-cp-surface-high: #ece6ee;
+  --color-cp-on-surface: #1d1b20;
+  --color-cp-on-surface-variant: #494551;
+  --color-cp-outline-variant: #cbc4d2;
+  --color-cp-secondary-container: #e1d4fd;
+  --color-cp-on-secondary-container: #645a7d;
+  --color-cp-error: #ba1a1a;
+  --color-cp-error-container: #ffdad6;
+  --color-cp-success: #2e7d32;
+  --color-cp-success-bg: #e8f5e9;
+  --color-cp-brand-teal: #008080;
+}
+
+.success-animation {
+  animation: payScaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes payScaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+:root {
+  --color-navy: #4f378a;
+  --color-teal: #6750a4;
+  --color-bg: #fdf7ff;
+  --color-text: #1d1b20;
+  --color-gray: #494551;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+}
+
+/* Shell tipo “modal” al abrir el link desde WhatsApp (webview / móvil) */
+.pay-backdrop {
+  min-height: 100dvh;
+  background: rgba(29, 27, 32, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+@media (min-width: 640px) {
+  .pay-backdrop {
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+  }
+}
+
+.pay-sheet {
+  width: 100%;
+  max-width: 32rem;
+  max-height: 96dvh;
+  margin: 0 auto;
+  background: var(--color-cp-background);
+  border-radius: 1rem 1rem 0 0;
+  box-shadow: 0 -8px 40px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .pay-sheet {
+    border-radius: 1rem;
+    max-height: 90dvh;
+    box-shadow: 0 16px 48px rgba(15, 23, 42, 0.18);
+  }
+}
+
+.pay-sheet-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pay-method-selected {
+  border-color: var(--color-cp-primary) !important;
+  background-color: var(--color-cp-surface-container) !important;
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}

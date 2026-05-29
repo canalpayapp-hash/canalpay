@@ -22,7 +22,7 @@ if (!token) {
 }
 
 const child = spawn('npx', ['expo', 'whoami'], {
-  cwd: resolve(root, 'apps/mobile'),
+  cwd: resolve(root, 'mobile'),
   stdio: 'inherit',
   shell: true,
   env: { ...process.env, EXPO_TOKEN: token },

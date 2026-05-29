@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CanalPay — Expo Go</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #fdf7ff;
+      color: #1d1b20;
+      max-width: 420px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    h1 { color: #4f378a; font-size: 1.5rem; }
+    img { margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    code { background: #f2ecf4; padding: 2px 8px; border-radius: 6px; word-break: break-all; }
+    ol { text-align: left; line-height: 1.6; }
+    .warn { background: #ffdf93; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>CanalPay en Expo Go</h1>
+  <p>Escanea con la app <strong>Expo Go</strong> (iPhone y PC en la misma Wi‑Fi).</p>
+  <img
+    id="qr"
+    width="280"
+    height="280"
+    alt="QR Expo Go"
+  />
+  <p>Enlace del proyecto:</p>
+  <p><code id="url">exp://192.168.0.110:8081</code></p>
+  <ol>
+    <li>En la PC: <code>npm run mobile</code> (debe seguir corriendo).</li>
+    <li>Abre <strong>Expo Go</strong> en el iPhone.</li>
+    <li>Escanea el QR o pega el enlace en “Enter URL manually”.</li>
+    <li>Login: <code>vendedor@dulcecaracas.com</code> + tu <code>DEMO_USER_PASSWORD</code>.</li>
+  </ol>
+  <p class="warn">
+    Si no conecta, en la terminal ejecuta:
+    <code>npx expo start --tunnel</code> y vuelve a abrir esta página tras actualizar la IP/URL.
+  </p>
+  <script>
+    const expUrl = 'exp://192.168.0.110:8081';
+    document.getElementById('url').textContent = expUrl;
+    document.getElementById('qr').src =
+      'https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=' + encodeURIComponent(expUrl);
+  </script>
+</body>
+</html>

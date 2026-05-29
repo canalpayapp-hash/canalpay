@@ -1,5 +1,5 @@
 /**
- * Copia variables públicas de .env.local raíz → apps/web y apps/mobile
+ * Copia variables públicas de .env.local raíz → admin y mobile
  */
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
@@ -29,7 +29,7 @@ if (!url || !anon) {
   process.exit(1);
 }
 
-const webEnv = `NEXT_PUBLIC_SUPABASE_URL=${url}
+const adminEnv = `NEXT_PUBLIC_SUPABASE_URL=${url}
 NEXT_PUBLIC_SUPABASE_ANON_KEY=${anon}
 NEXT_PUBLIC_APP_URL=${appUrl}
 `;
@@ -39,7 +39,7 @@ EXPO_PUBLIC_SUPABASE_ANON_KEY=${anon}
 EXPO_PUBLIC_APP_URL=${appUrl}
 `;
 
-writeFileSync(resolve(root, 'apps/web/.env.local'), webEnv, 'utf8');
-writeFileSync(resolve(root, 'apps/mobile/.env'), mobileEnv, 'utf8');
-console.log('✓ apps/web/.env.local');
-console.log('✓ apps/mobile/.env');
+writeFileSync(resolve(root, 'admin/.env.local'), adminEnv, 'utf8');
+writeFileSync(resolve(root, 'mobile/.env'), mobileEnv, 'utf8');
+console.log('✓ admin/.env.local');
+console.log('✓ mobile/.env');

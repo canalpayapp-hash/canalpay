@@ -29,7 +29,7 @@
 ## Probar manualmente
 
 ```powershell
-npm run web
+npm run admin
 npm run mobile
 ```
 
@@ -45,10 +45,10 @@ Contraseña: `DEMO_USER_PASSWORD` en `.env.local`.
 
 ## Código clave
 
-- `packages/shared/src/auth.ts` — reglas de rol
-- `apps/web/src/middleware.ts` — guard web
-- `apps/web/src/lib/auth/session.ts` — sesión servidor
-- `apps/mobile/context/AuthContext.tsx` — guard móvil
+- `shared/src/auth.ts` — reglas de rol
+- `admin/src/middleware.ts` — guard web
+- `admin/src/lib/auth/session.ts` — sesión servidor
+- `mobile/context/AuthContext.tsx` — guard móvil
 
 ---
 
