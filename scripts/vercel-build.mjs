@@ -1,6 +1,6 @@
 /**
- * Build para Vercel cuando Root Directory del dashboard sigue en la raíz del repo.
- * Construye admin/ y deja .next en la raíz para el runtime de Next.js.
+ * Build para Vercel (raíz del repo).
+ * bootstrap:web ya instaló deps; no repetir npm install (en producción borra devDependencies).
  */
 import { execSync } from 'child_process';
 import { cpSync, existsSync, rmSync } from 'fs';
@@ -14,8 +14,6 @@ function run(cmd, cwd = root) {
   execSync(cmd, { cwd, stdio: 'inherit', shell: true });
 }
 
-run('npm install', resolve(root, 'shared'));
-run('npm install', resolve(root, 'admin'));
 run('npm run build', resolve(root, 'admin'));
 
 const srcNext = resolve(root, 'admin', '.next');

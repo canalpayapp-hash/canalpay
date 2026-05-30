@@ -5,7 +5,7 @@
   "description": "CanalPay - Pagos para canales rápidos",
   "scripts": {
     "bootstrap": "npm install && cd shared && npm install && cd ../admin && npm install && cd ../mobile && npm install",
-    "bootstrap:web": "npm install && cd shared && npm install && cd ../admin && npm install",
+    "bootstrap:web": "npm install && cd shared && npm install && cd ../admin && npm install --include=dev",
     "phase1:apply": "node scripts/phase1-apply-migrations.mjs",
     "phase1:users": "node scripts/phase1-create-users.mjs",
     "mobile:test-user": "node scripts/create-mobile-test-user.mjs",
