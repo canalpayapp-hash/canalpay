@@ -1,28 +1,26 @@
 # Desplegar en Vercel (proyecto **canalpay**)
 
-## Error: `npm run build --workspace=@canalpay/web`
+La app Next.js está en **`admin/`** (no `web/`, no `apps/web`).
 
-El dashboard tiene **configuración vieja** (`apps/web`, workspaces). Corrígelo en:
+## Settings obligatorios (proyecto **canalpay**)
 
 **Settings → General → Build & Development Settings**
 
-| Campo | Valor |
-|--------|--------|
-| **Build Command** | Override **OFF** (usa `vercel.json`) **o** `npm run vercel-build` |
-| **Install Command** | Override **OFF** **o** `npm run bootstrap` |
-| **Output Directory** | Override **OFF** |
+| Campo | Valor correcto | ❌ Quitar |
+|--------|----------------|-----------|
+| **Root Directory** | `.` (raíz) o `admin` | `apps/web`, `web` |
+| **Build Command** | Override **OFF** o `npm run vercel-build` | `--workspace=@canalpay/web` |
+| **Install Command** | Override **OFF** o `npm run bootstrap:admin` | `npm install` solo raíz |
+| **Output Directory** | Override **OFF** o **`.next`** | **`apps/web/.next`** |
 
-Quita `@canalpay/web`, `apps/web` y `--workspace=`.
+El repo incluye `vercel.json` en la raíz con estos valores.
 
-El repo incluye `vercel.json` en la raíz con los comandos correctos.
+### Si Root Directory = `admin`
 
----
-
-## Root Directory (elige una)
-
-**A) Raíz `.`** — usa `vercel.json` + `npm run vercel-build` (ya configurado).
-
-**B) `admin`** — Install: `cd ../shared && npm install && npm install`, Build: `npm run build`, activar **Include files outside Root Directory**.
+- Install: `cd ../shared && npm install && npm install --include=dev`
+- Build: `npm run build`
+- Output: `.next`
+- Activar **Include files outside Root Directory**
 
 ---
 
@@ -33,6 +31,12 @@ El repo incluye `vercel.json` en la raíz con los comandos correctos.
 - `NEXT_PUBLIC_APP_URL` → `https://canalpay.vercel.app`
 - `SUPABASE_SERVICE_ROLE_KEY`
 
-## Solo proyecto **canalpay** (no **web**)
+## Proyecto **web** en Vercel
 
-Cada `git push` a `main` despliega si Git está conectado.
+Ese proyecto es un error antiguo. **Bórralo.** Usa solo **canalpay**.
+
+## Deploy
+
+```powershell
+git push origin main
+```

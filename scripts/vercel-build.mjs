@@ -1,6 +1,6 @@
 /**
  * Build para Vercel (raíz del repo).
- * bootstrap:web ya instaló deps; no repetir npm install (en producción borra devDependencies).
+ * bootstrap:admin ya instaló deps; no repetir npm install (en producción borra devDependencies).
  */
 import { execSync } from 'child_process';
 import { cpSync, existsSync, rmSync } from 'fs';
