@@ -16,7 +16,6 @@
     "github:auth": "node scripts/github-auth.mjs",
     "expo:link": "cd mobile && npx eas init",
     "build:admin": "cd admin && npm run build",
-    "vercel-build": "node scripts/vercel-build.mjs",
     "phase2:setup": "node scripts/phase2-setup-env.mjs",
     "phase2:verify": "node scripts/phase2-verify.mjs",
     "phase3:verify": "node scripts/phase3-verify.mjs",

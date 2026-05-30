@@ -1,4 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "cd ../shared && npm install && npm install"
+  "installCommand": "cd ../shared && npm install && npm install --include=dev",
+  "buildCommand": "npm run build"
 }

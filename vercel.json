@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "npm run bootstrap:admin",
-  "buildCommand": "npm run vercel-build",
-  "outputDirectory": ".next"
+  "buildCommand": "cd admin && npm run build",
+  "outputDirectory": "admin/.next"
 }
