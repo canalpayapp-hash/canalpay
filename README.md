@@ -22,7 +22,7 @@ Cada carpeta tiene su propio `package.json` y `node_modules` — sin npm workspa
 
 ```powershell
 cd c:\Empresa\CanalPay
-npm run install:all
+npm run bootstrap
 npm run phase2:setup
 npm run admin          # http://localhost:3000
 npm run mobile         # Expo Go

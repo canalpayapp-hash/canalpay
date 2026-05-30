@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "CanalPay - Pagos para canales rápidos",
   "scripts": {
-    "install:all": "npm install && cd shared && npm install && cd ../admin && npm install && cd ../mobile && npm install",
+    "bootstrap": "npm install && cd shared && npm install && cd ../admin && npm install && cd ../mobile && npm install",
     "phase1:apply": "node scripts/phase1-apply-migrations.mjs",
     "phase1:users": "node scripts/phase1-create-users.mjs",
     "mobile:test-user": "node scripts/create-mobile-test-user.mjs",
@@ -15,6 +15,7 @@
     "github:auth": "node scripts/github-auth.mjs",
     "expo:link": "cd mobile && npx eas init",
     "build:admin": "cd admin && npm run build",
+    "vercel-build": "node scripts/vercel-build.mjs",
     "phase2:setup": "node scripts/phase2-setup-env.mjs",
     "phase2:verify": "node scripts/phase2-verify.mjs",
     "phase3:verify": "node scripts/phase3-verify.mjs",
@@ -25,6 +26,9 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "next": "15.5.18"
   },
   "devDependencies": {
     "pg": "^8.21.0"

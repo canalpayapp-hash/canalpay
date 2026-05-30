@@ -1,51 +1,46 @@
-# Desplegar en Vercel (como Legalo)
+# Desplegar en Vercel (proyecto **canalpay**)
 
-Legalo despliega solo la carpeta `admin/`. CanalPay igual, con una línea extra para instalar `shared/`.
+## Si ves `404: NOT_FOUND`
 
-## Configuración en Vercel (proyecto **canalpay**)
+Suele pasar si el deploy usó `framework: null` y publicó `.next` como archivos estáticos. Hay que redesplegar como **Next.js**.
+
+### Opción A — Dashboard (recomendada)
+
+Proyecto **canalpay** → **Settings** → **General**:
 
 | Campo | Valor |
-|-------|--------|
+|--------|--------|
 | **Root Directory** | `admin` |
-| **Framework** | Next.js (auto) |
-| **Install Command** | *(vacío — usa `admin/vercel.json`)* |
-| **Build Command** | `npm run build` |
-| **Output Directory** | `.next` |
+| **Include files outside Root Directory** | **On** |
+| **Build Command** | `npm run build` (por defecto) |
+| **Install Command** | *(vacío; usa `admin/vercel.json`)* |
 
-El archivo `admin/vercel.json` solo añade:
+Quita overrides viejos (`apps/web`, workspaces).
 
-```json
-{ "installCommand": "cd ../shared && npm install && npm install" }
-```
+Luego **Deployments** → último deploy → **Redeploy**.
 
-## Variables de entorno
+### Opción B — Raíz del repo (sin cambiar dashboard)
 
-En Vercel → Settings → Environment Variables:
+El script `npm run vercel-build` en la raíz construye `admin/` y deja `.next` en la raíz. Vercel lo ejecuta si existe el script `vercel-build` en `package.json`.
+
+---
+
+## Variables de entorno (proyecto canalpay)
 
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-- `NEXT_PUBLIC_APP_URL` → `https://canalpay-canal-pay.vercel.app` (o tu dominio)
-- `SUPABASE_SERVICE_ROLE_KEY` (recomendada para invitar usuarios)
+- `NEXT_PUBLIC_APP_URL` → `https://canalpay.vercel.app`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
-## Comprobar build local
+## No uses el proyecto **web**
 
-```powershell
-npm run build:admin
-```
+Ese proyecto se creó por error al desplegar desde `admin/` con el CLI. Borra **web** en Vercel y usa solo **canalpay**.
 
-## Deploy con CLI
+## Deploy CLI (solo desde la raíz del repo)
 
 ```powershell
-cd admin
+cd c:\Empresa\CanalPay
 npx vercel deploy --prod
 ```
 
-Conecta el repo en GitHub y cada push despliega solo `admin/` si Root Directory = `admin`.
-
-## Móvil
-
-Tras el deploy, en `mobile/.env`:
-
-```
-EXPO_PUBLIC_APP_URL=https://tu-dominio.vercel.app
-```
+**No** ejecutes `vercel deploy` dentro de `admin/`.
