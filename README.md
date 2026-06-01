@@ -32,7 +32,7 @@ cd mobile
 npx expo start --clear
 ```
 
-Deploy web: [docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)
+Deploy y build en producción: **[docs/DEPLOY-VERCEL.md](docs/DEPLOY-VERCEL.md)** (guía completa — evita errores con `web` / Vercel).
 
 ## Repo
 

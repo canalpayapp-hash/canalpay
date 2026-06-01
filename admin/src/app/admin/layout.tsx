@@ -3,6 +3,8 @@ import { getRoleLabel } from '@canalpay/shared';
 import { AdminSidebar } from '@/components/admin/AdminSidebar';
 import { getSessionContext } from '@/lib/auth/session';
 
+export const dynamic = 'force-dynamic';
+
 const GATE_REDIRECT: Record<string, string> = {
   inactive: '/cuenta-inactiva',
   no_profile: '/perfil-incompleto',
